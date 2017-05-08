@@ -29,9 +29,10 @@ app.locals.pretty = true;
 
 const verificationController = require('./controllers/verification');
 const messageWebhookController = require('./controllers/messageWebhook');
-app.get("/",function(req,res){
+app.get('/cool',function(req,res){
     res.status(200).send(`<h1>Todo ok papus!</h1>`+ cool());
 });
+
 app.get('/', verificationController);
 app.post('/', messageWebhookController);
 

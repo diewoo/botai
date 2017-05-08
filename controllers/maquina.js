@@ -8,7 +8,7 @@ exports.obtenerMaquina=function(req,res){
 	res.status(200),end();
 }
 
-
+/*
 exports.obtenerWebHook=function(req, res){
     const hubChallenge = req.query['hub.challenge'];
 
@@ -36,4 +36,4 @@ exports.enviarWebHook=(req, res) => {
 
         res.status(200).end();
     }
-}
+}*/
