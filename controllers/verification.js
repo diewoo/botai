@@ -1,3 +1,5 @@
+
+
 module.exports = (req, res) => {
     const hubChallenge = req.query['hub.challenge'];
 
@@ -10,3 +12,5 @@ module.exports = (req, res) => {
         res.status(403).end();
     }
 };
+
+
