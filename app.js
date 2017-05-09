@@ -4,8 +4,14 @@ const express = require('express'),
     bodyParser = require('body-parser'),
     path = require('path'),
     methodOverride = require('method-override');
-const cool = require('cool-ascii-faces');    
-
+const cool = require('cool-ascii-faces');
+const mongoose=require('mongoose');    
+//conexion a mongo lab
+const database = process.env.MONGO_URL || 'mongodb://diewoo:webcamdelima123@ds129030.mlab.com:29030/bot-ai';
+    mongoose.connect(database,function(err,res){
+        if(err) throw err;
+             console.log(`Connected to Database!! `);
+        });
 //puerto de conexion
 const port = process.env.PORT || 5000;
 //ruta de los routers
