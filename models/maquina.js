@@ -2,8 +2,10 @@ const mongoose=require('mongoose'),
 	Schema=mongoose.Schema;
 
 	const usuarioSchema=new Schema({
-		usuario:String,
+		
+		username:String,
 		password:String
+		
 	});
 
-	module.exports=mongoose.model('usuario',usuarioSchema);
+	module.exports=mongoose.model('users',usuarioSchema);

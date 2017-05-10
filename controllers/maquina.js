@@ -1,77 +1,66 @@
 'use strict'
 
 var mongoose = require('mongoose');
-var Maquina = mongoose.model('usuario');
+var Maquina = mongoose.model('users');
 
 const processMessage = require('../helpers/processMessage');
 
 exports.obtenerMaquina = function(req, res) {
     res.status(200).end();
 }
-var rptalogin = function(userid, usuario, password, mensaje, codigo, tipo) {
+var rptalogin = function( user, mensaje, codigo,password) {
     return {
         status: {
             msg: mensaje,
             cod: codigo
         },
         user: {
-            userid: userid,
-            usuario: usuario,
+            username: user,
             password: password,
-            tipo: tipo
+ 
         }
     }
 }
-exports.validLogin = function(req, res) {
-        var usuario = req.body.usuario;
+exports.obtenerUsuarios=function(req,res){
+    
+
+  
+  //var db = mongoose.connection;
+  Maquina.find(function(err,usuario){
+    if(err) res.send(500,err.message);
+    console.log(usuario);
+    console.log('GET/usuarios')
+        res.status(200).jsonp(usuario);
         
-        var password = req.body.password;
-        Maquina.findOne({'usuario':usuario}, (err, user) => {
+      });
+};
+exports.validLogin = function(req, res) {
+       var username=req.body.username;
+       var password=req.body.password;
+       console.log(req.body.username);
+        Maquina.findOne({username:username}, (err, user) => {
             var  rpta = {};
+            console.log("usuario "+user);	
             if (user) {
-                if (user.password = "123") {
+                if (user.password = password) {
                     if (err) return res.status(500).send(err.message);
-                    rpta = rptalogin(id, req.body.usuario, password, "Login exitoso", 1)
+                    rpta = rptalogin( req.body.username ,"Login exitoso", 1,req.body.password)
                     res.status(200).jsonp(rpta);
                 } else {
                     if (err) return res.status(500).send(err.message);
-                    rpta = rptalogin(id, req.body.usuario, password, "Contraseña incorrecta", 0)
+                    rpta = rptalogin( req.body.username, "Contraseña incorrecta", 0,req.body.password)
                     res.status(200).jsonp(rpta);
                 }
             } else {
                 if (err) return res.status(500).send(err.message);
-                rpta = rptalogin(req.body.usuario, "No existe el usuario ", 0);
+                rpta = rptalogin(req.body.username, "No existe el usuario ", 0,req.body.password);
                 res.status(200).jsonp(rpta);
             }
-        })
+        });
 
     }
-    /*
-    exports.obtenerWebHook=function(req, res){
-        const hubChallenge = req.query['hub.challenge'];
-
-        const hubMode = req.query['hub.mode'];
-        const verifyTokenMatches = (req.query['hub.verify_token'] === 'packbot is cool');
-
-        if (hubMode && verifyTokenMatches) {
-            res.status(200).send(hubChallenge);
-        } else {
-            res.status(403).end();
-        }
-    }
 
 
 
-    exports.enviarWebHook=(req, res) => {
-        if (req.body.object === 'page') {
-            req.body.entry.forEach(entry => {
-                entry.messaging.forEach(event => {
-                    if (event.message && event.message.text) {
-                        processMessage(event);
-                    }
-                });
-            });
 
-            res.status(200).end();
-        }
-    }*/
+   

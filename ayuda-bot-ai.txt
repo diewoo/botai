@@ -1,0 +1,5 @@
+curl -k -H "Authorization: Bearer 0511eed9bbce47fb877d7edc87710c40" "https://api.api.ai/v1/intents?v=20150910"
+
+curl -k -H "Authorization: Bearer 0511eed9bbce47fb877d7edc87710c40" "https://api.api.ai/v1/entities?v=20150910"
+
+EAAbPT27MpnUBAGrhLjVR57jlZA38kboSMpqmMZAFw8CzxV3oKnfzE04yx0bp8isa10PRwQZA9bWcphracfpIZCXImYMXAepWZCLwYEXFFM8wYBP9gOMPmKWi1VfdbxAvkL3Lack35P3IL4CFwxljBZB7o4c4h5UUlpZC05Xsu9ZAWwZDZD

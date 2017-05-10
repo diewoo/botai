@@ -17,6 +17,10 @@ var maquina = express.Router();
 maquina.route('/obtenerMaquina')
         .get(maquinaCTRL.obtenerMaquina);
 
+        
+maquina.route('/obtenerUsuarios')
+        .get(maquinaCTRL.obtenerUsuarios);        
+
 /*
 
 maquina.route('/webhook')
@@ -27,4 +31,6 @@ maquina.route('/webhook')
 */
 maquina.route('/login')
 		.post(maquinaCTRL.validLogin);
+
+
 module.exports = maquina;
