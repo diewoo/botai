@@ -1,13 +1,10 @@
 'use strict'
 
+var axios=require('axios');
 var mongoose = require('mongoose');
-var Maquina = mongoose.model('users');
 
-const processMessage = require('../helpers/processMessage');
+const storage=require("../storage/maquina");
 
-exports.obtenerMaquina = function(req, res) {
-    res.status(200).end();
-}
 var rptalogin = function( user, mensaje, codigo,password) {
     return {
         status: {
@@ -21,6 +18,29 @@ var rptalogin = function( user, mensaje, codigo,password) {
         }
     }
 }
+var Maquina = mongoose.model('usuarios');
+exports.obtenerMaquina = function(req, res) {
+    var tipo = req.query.tipo;
+    storage.getMaquinas(tipo, (err, docs) => {
+        if (err) {
+            res.status(500).send({
+                msg: "Error bd"
+            });
+            return;
+        }
+        if (!docs) {
+            res.send({
+                cod: 0,
+                msg: "No hay maquinas"
+            });
+        }
+        res.send({
+            cod: 1,
+            data: docs
+        });
+    });
+}
+
 exports.obtenerUsuarios=function(req,res){
     
 
@@ -60,7 +80,21 @@ exports.validLogin = function(req, res) {
 
     }
 
+//cargar entities al api
 
-
-
+exports.cargarEntities=function(req,res){
+ res.status(200);
+}
+//obtener entities del api
+exports.obtenerEntities=function(req,res){
+    var config = {
+  headers: {'Authorization': 'Bearer 0511eed9bbce47fb877d7edc87710c40'}
+};
+    axios.get('https://api.api.ai/v1/entities?v=20150910',config)
+    .then(function(response){
+        console.log(response.data); 
+        console.log(response.status);
+        res.status(200).jsonp(response.data);
+    })
    
+}   

@@ -1,6 +1,6 @@
 
 
-module.exports = (req, res) => {
+exports.obtenerWebHook = (req, res) => {
     const hubChallenge = req.query['hub.challenge'];
 
     const hubMode = req.query['hub.mode'];

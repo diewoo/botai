@@ -8,4 +8,4 @@ const mongoose=require('mongoose'),
 		
 	});
 
-	module.exports=mongoose.model('users',usuarioSchema);
+	module.exports=mongoose.model('usuarios',usuarioSchema);
