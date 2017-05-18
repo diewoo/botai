@@ -7,11 +7,11 @@ $(document).ready(function() {
     console.log(id)
 
     .then(function(response) {
-            console.log(response.data);
+            console.log(response);
 
         })
         .catch(function(error) {
-            console.log(response.error);
+            console.log(error);
         })
 
 
