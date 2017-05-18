@@ -4,6 +4,7 @@ var id = localStorage.getItem("nombre");
 $(document).ready(function() {
 
     axios.post('https://packbot.herokuapp.com/maquina/webhookweb/' + id)
+    console.log(id)
 
     .then(function(response) {
             console.log(response.data);
