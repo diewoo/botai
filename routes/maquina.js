@@ -42,7 +42,7 @@ maquina.route('/entities')
 maquina.route('/mensaje/:mensaje')
     .post(maquinaCTRL.enviarInformacion);
 
-maquina.route('/webhookweb')
+maquina.route('/webhookweb/:username')
     .post(maquinaCTRL.procesarMensaje);
 
 module.exports = maquina;

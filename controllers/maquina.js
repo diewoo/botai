@@ -161,45 +161,57 @@ exports.registrarUsuario = function(req, res) {
 
 }
 exports.procesarMensaje = function(req, res) {
-        console.log('hook request');
+        Maquina.findOne({ "username": req.params.username }, function(err, maquina) {
 
-        try {
-            var speech = 'empty speech';
+            console.log(maquina);
+            console.log('GET/usuarios')
+            var nombre = "Bienvenido" + " " + maquina.empresa + " " + "me da gusto volver a verte!, soy el packbot en que te puedo ayudar?";
 
-            if (req.body) {
-                var requestBody = req.body;
 
-                if (requestBody.result) {
-                    speech = '';
 
-                    if (requestBody.result.fulfillment) {
-                        speech += requestBody.result.fulfillment.speech;
-                        speech += ' ';
-                    }
+            try {
 
-                    if (requestBody.result.action) {
-                        speech += 'action: ' + requestBody.result.action;
+                var speech = 'empty speech';
+
+                if (req.body) {
+                    console.log('hook request');
+
+                    var requestBody = req.body;
+
+                    if (requestBody.result) {
+                        speech = '';
+
+                        if (requestBody.result.fulfillment) {
+                            speech += requestBody.result.fulfillment.speech;
+                            speech += ' ';
+                        }
+
+                        /*   if (requestBody.result.action) {
+                               speech += 'action: ' + requestBody.result.action;
+                           }*/
                     }
                 }
+
+                console.log('result: ', speech);
+
+                return res.send({
+                    speech: speech,
+                    displayText: "",
+                    source: 'apiai-webhook-sample',
+                    data: nombre
+                });
+
+            } catch (err) {
+                console.error("Can't process request", err);
+
+                return res.status(400).json({
+                    status: {
+                        code: 400,
+                        errorType: err.message
+                    }
+                });
             }
-
-            console.log('result: ', speech);
-
-            return res.json({
-                speech: speech,
-                displayText: speech,
-                source: 'apiai-webhook-sample'
-            });
-        } catch (err) {
-            console.error("Can't process request", err);
-
-            return res.status(400).json({
-                status: {
-                    code: 400,
-                    errorType: err.message
-                }
-            });
-        }
+        });
     }
     //cargar entities al api
 
