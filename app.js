@@ -35,7 +35,7 @@ app.use('/maquina', maquina);
 
 
 /**********************************cool*******/
-app.get('/cool', function(req, res) {
+app.get('/', function(req, res) {
     res.status(200).send(`<h1>Todo ok papus!</h1>` + cool());
 });
 
