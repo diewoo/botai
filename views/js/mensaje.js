@@ -2,8 +2,13 @@ var id = localStorage.getItem("nombre");
 //var URL1 = "https://packbot.herokuapp.com/maquina/webhookweb/"
 //var URL2 = "http://127.0.0.1:5000/maquina/webhookweb";
 $(document).ready(function() {
+    var config = {
+        headers: {
+            ' Content-type': 'application/json'
 
-    axios.post('https://packbot.herokuapp.com/maquina/webhookweb/' + id)
+        }
+    };
+    axios.post('https://packbot.herokuapp.com/maquina/webhookweb/' + id, config)
     console.log(id)
 
     .then(function(response) {
