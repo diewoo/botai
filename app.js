@@ -8,10 +8,10 @@ const express = require('express'),
     bodyParser = require('body-parser'),
     path = require('path'),
     methodOverride = require('method-override'),
-    logger=require('morgan'),
+    logger = require('morgan'),
     cool = require('cool-ascii-faces'),
     mongoose = require('mongoose'),
-    cors=require('cors'),
+    cors = require('cors'),
     cookieParser = require('cookie-parser');
 //conexion a mongo lab
 const database = process.env.MONGO_URL || 'mongodb://diewoo:webcamdelima123@ds129030.mlab.com:29030/bot-ai';
@@ -20,7 +20,7 @@ mongoose.connect(database, function(err, res) {
     console.log(`Connected to Database!! `);
 });
 
-const maquina=require('./routes/maquina');
+const maquina = require('./routes/maquina');
 
 
 /******************************/
@@ -42,4 +42,4 @@ app.get('/cool', function(req, res) {
 app.listen(port, function() {
     console.log(`Servidor ejecutandose en el puerto: ${port}`);
 });
-module.exports=app;
+module.exports = app;
