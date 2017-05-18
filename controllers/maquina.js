@@ -186,15 +186,15 @@ exports.procesarMensaje = function(req, res) {
                             speech += ' ';
                         }
 
-                        /*   if (requestBody.result.action) {
-                               speech += 'action: ' + requestBody.result.action;
-                           }*/
+                        if (requestBody.result.action) {
+                            speech += 'action: ' + requestBody.result.action;
+                        }
                     }
                 }
 
-                console.log('result: ', speech);
+                console.log('result: ', nombre);
 
-                return res.send({
+                return res.json({
                     speech: speech,
                     displayText: "",
                     source: 'apiai-webhook-sample',

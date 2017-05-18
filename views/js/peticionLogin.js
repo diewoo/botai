@@ -1,5 +1,5 @@
-var URL = "https://packbot.herokuapp.com/maquina/";
-//var URL = "http://127.0.0.1:5000/maquina/";
+//var URL = "https://packbot.herokuapp.com/maquina/";
+var URL = "http://127.0.0.1:5000/maquina/";
 
 $(document).ready(function() {
 

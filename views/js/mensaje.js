@@ -8,7 +8,7 @@ $(document).ready(function() {
 
         }
     };
-    axios.post('https://packbot.herokuapp.com/maquina/webhookweb/' + id, config)
+    axios.post('http://127.0.0.1:5000/maquina/webhookweb/' + id, config)
     console.log(id)
 
     .then(function(response) {
