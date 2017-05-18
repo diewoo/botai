@@ -194,8 +194,8 @@ exports.procesarMensaje = function(req, res) {
 
                 console.log('result: ', nombre);
 
-                return res.json({
-                    speech: speech,
+                res.status(200).jsonp({
+                    speech: nombre,
                     displayText: "",
                     source: 'apiai-webhook-sample',
                     data: nombre
