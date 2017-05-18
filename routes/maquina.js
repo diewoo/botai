@@ -6,6 +6,7 @@ const express = require('express'),
 
 //models
 var models = require('../models/maquina')(app, mongoose);
+var models = require('../models/clientesmaquinas')(app, mongoose);
 
 //controller
 var maquinaCTRL = require('../controllers/maquina');
@@ -40,5 +41,8 @@ maquina.route('/entities')
     //procesar mensaje
 maquina.route('/mensaje/:mensaje')
     .post(maquinaCTRL.enviarInformacion);
+
+maquina.route('/webhookweb')
+    .post(maquinaCTRL.procesarMensaje);
 
 module.exports = maquina;

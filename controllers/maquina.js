@@ -31,6 +31,7 @@ var rptaregistro = function(mensaje, codigo) {
 
 };
 var Maquina = mongoose.model('users');
+var clienteMaquina = mongoose.model('clientes');
 exports.obtenerMaquina = function(req, res) {
     var tipo = req.query.tipo;
     storage.getMaquinas(tipo, (err, docs) => {
@@ -159,8 +160,48 @@ exports.registrarUsuario = function(req, res) {
 
 
 }
+exports.procesarMensaje = function(req, res) {
+        console.log('hook request');
 
-//cargar entities al api
+        try {
+            var speech = 'empty speech';
+
+            if (req.body) {
+                var requestBody = req.body;
+
+                if (requestBody.result) {
+                    speech = '';
+
+                    if (requestBody.result.fulfillment) {
+                        speech += requestBody.result.fulfillment.speech;
+                        speech += ' ';
+                    }
+
+                    if (requestBody.result.action) {
+                        speech += 'action: ' + requestBody.result.action;
+                    }
+                }
+            }
+
+            console.log('result: ', speech);
+
+            return res.json({
+                speech: speech,
+                displayText: speech,
+                source: 'apiai-webhook-sample'
+            });
+        } catch (err) {
+            console.error("Can't process request", err);
+
+            return res.status(400).json({
+                status: {
+                    code: 400,
+                    errorType: err.message
+                }
+            });
+        }
+    }
+    //cargar entities al api
 
 exports.cargarEntities = function(req, res) {
         res.status(200);
