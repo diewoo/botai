@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://bootswatch.com/cerulean/bootstrap.min.css">
+</head>
+
+<body style="background-color: #f7f7f7">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Packbot</h3>
+                    </div>
+                    <div class="panel-body">
+                        <textarea id="postResult" cols="70" rows="24" readonly=""></textarea>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <form class="form-inline" id="todoInputForm">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="todoTitle" placeholder="Diga algo">
+                                    </div>
+                                    <button type="submit" class="btn btn-success ">Enviar</button>
+                                </form>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-warning" onclick="clearOutput()">Limpiar</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript" src="./js/mensaje.js"></script>
+            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

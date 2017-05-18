@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.6.2/sweetalert2.min.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <hgroup>
+            <h1>Pack Bot </h1>
+            <h3>Por Crenteria S.A.C</h3>
+        </hgroup>
+        <form>
+            <div class="group">
+                <input type="text" id="user"><span class="highlight"></span><span class="bar"></span>
+                <label>Usuario</label>
+            </div>
+            <div class="group">
+                <input id="pass" type="password"><span class="highlight"></span><span class="bar"></span>
+                <label>Password</label>
+            </div>
+            <button type="button" id="login" class="button buttonBlue">Ingresar
+                <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+            </button>
+            <button type="button" id="registro" class="button buttonGreen">Registrarse
+                <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+            </button>
+        </form>
+    </div>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="./js/login.js"></script>
+    <script type="text/javascript" src="./js/peticionLogin.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/sweetalert2/6.6.2/sweetalert2.min.js"></script>
+</body>
+
+</html>
