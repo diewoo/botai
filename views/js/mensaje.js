@@ -4,11 +4,11 @@ var URL2 = "http://127.0.0.1:5000/maquina/webhookweb";
 $(document).ready(function() {
     var config = {
         headers: {
-            ' Content-type': 'application/json'
+            'Content-type': 'application/json; charset=utf-8'
 
         }
     };
-    axios.post(URL1, { "username": nombre }, config)
+    axios.post(URL1, { username: nombre }, config)
     console.log(nombre)
 
     .then(function(response) {
