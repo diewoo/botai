@@ -8,7 +8,7 @@ $(document).ready(function() {
 
         }
     };
-    axios.post(URL1, { "username": nombre })
+    axios.post(URL1, { "username": nombre }, config)
     console.log(nombre)
 
     .then(function(response) {
