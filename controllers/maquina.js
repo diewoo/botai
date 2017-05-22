@@ -161,47 +161,42 @@ exports.registrarUsuario = function(req, res) {
 
 }
 exports.procesarMensaje = function(req, res) {
+
+
+
+    var nombre = "Hola" + " " + "me da gusto verte!, soy el packbot en que te puedo ayudar?";
+    // console.log(nombre)
     try {
-        Maquina.findOne({ "username": req.body.username }, function(err, maquina) {
+        var speech = 'empty speech';
+        if (req.body) {
+            console.log('hook request');
 
-            console.log(maquina);
-            console.log('GET/usuarios')
-            var nombre = "Bienvenido" + " " + maquina.empresa + " " + "me da gusto verte!, soy el packbot en que te puedo ayudar?";
+            var requestBody = req.body;
+
+            if (requestBody.result) {
+                speech = '';
+
+                if (requestBody.result.fulfillment) {
+                    speech += requestBody.result.fulfillment.speech;
+
+                    speech += '';
+                }
+
+                if (requestBody.result.action === 'greetings') {
+                    speech += nombre;
+                }
+                if (requestBody.result.action === 'rpta-info-maquina') {
+                    speech += nombre;
+                }
+            }
+        }
+        return res.json({
+            speech: speech,
+            displayText: speech,
+            source: 'apiai-webhook-sample'
+        });
 
 
-
-
-            /*
-                            var speech = 'empty speech';
-
-                            if (req.body) {
-                                console.log('hook request');
-
-                                var requestBody = req.body;
-
-                                if (requestBody.result) {
-                                    speech = '';
-
-                                    if (requestBody.result.fulfillment) {
-                                        speech += requestBody.result.fulfillment.speech;
-                                        speech += ' ';
-                                    }
-
-                                    if (requestBody.result.action) {
-                                        speech += 'action: ' + requestBody.result.action;
-                                    }
-                                }
-                            }
-            */
-            console.log('result: ', nombre);
-
-            res.status(200).jsonp({
-                speech: nombre,
-                displayText: "",
-                source: 'apiai-webhook-sample',
-                data: nombre
-            });
-        })
 
     } catch (err) {
         console.error("Can't process request", err);
@@ -213,6 +208,8 @@ exports.procesarMensaje = function(req, res) {
             }
         });
     }
+
+
 };
 
 //cargar entities al api

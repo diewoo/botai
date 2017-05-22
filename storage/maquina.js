@@ -24,8 +24,7 @@ function getFields(tipo) {
                 m.stock,
                 d.desc,
                 d.link
-            `
-            break;
+            `;
         case "EH":
             return `
                 m.modelo,
