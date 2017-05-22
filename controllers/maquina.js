@@ -164,58 +164,57 @@ exports.procesarMensaje = function(req, res) {
     try {
         Maquina.findOne({ "username": req.body.username }, function(err, maquina) {
 
-                console.log(maquina);
-                console.log('GET/usuarios')
-                var nombre = "Bienvenido" + " " + maquina.empresa + " " + "me da gusto verte!, soy el packbot en que te puedo ayudar?";
+            console.log(maquina);
+            console.log('GET/usuarios')
+            var nombre = "Bienvenido" + " " + maquina.empresa + " " + "me da gusto verte!, soy el packbot en que te puedo ayudar?";
 
 
 
 
-                /*
-                                var speech = 'empty speech';
+            /*
+                            var speech = 'empty speech';
 
-                                if (req.body) {
-                                    console.log('hook request');
+                            if (req.body) {
+                                console.log('hook request');
 
-                                    var requestBody = req.body;
+                                var requestBody = req.body;
 
-                                    if (requestBody.result) {
-                                        speech = '';
+                                if (requestBody.result) {
+                                    speech = '';
 
-                                        if (requestBody.result.fulfillment) {
-                                            speech += requestBody.result.fulfillment.speech;
-                                            speech += ' ';
-                                        }
+                                    if (requestBody.result.fulfillment) {
+                                        speech += requestBody.result.fulfillment.speech;
+                                        speech += ' ';
+                                    }
 
-                                        if (requestBody.result.action) {
-                                            speech += 'action: ' + requestBody.result.action;
-                                        }
+                                    if (requestBody.result.action) {
+                                        speech += 'action: ' + requestBody.result.action;
                                     }
                                 }
-                */
-                console.log('result: ', nombre);
+                            }
+            */
+            console.log('result: ', nombre);
 
-                res.status(200).jsonp({
-                    speech: nombre,
-                    displayText: "",
-                    source: 'apiai-webhook-sample',
-                    data: nombre
-                });
-            }
-
-        }
-        catch (err) {
-            console.error("Can't process request", err);
-
-            return res.status(400).json({
-                status: {
-                    code: 400,
-                    errorType: err.message
-                }
+            res.status(200).jsonp({
+                speech: nombre,
+                displayText: "",
+                source: 'apiai-webhook-sample',
+                data: nombre
             });
-        }
-    });
-}
+        })
+
+    } catch (err) {
+        console.error("Can't process request", err);
+
+        return res.status(400).json({
+            status: {
+                code: 400,
+                errorType: err.message
+            }
+        });
+    }
+};
+
 //cargar entities al api
 
 exports.cargarEntities = function(req, res) {
