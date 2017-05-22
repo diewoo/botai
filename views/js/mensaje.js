@@ -1,4 +1,4 @@
-var id = localStorage.getItem("nombre");
+var nombre = localStorage.getItem("nombre");
 var URL1 = "https://packbot.herokuapp.com/maquina/webhookweb/"
     //var URL2 = "http://127.0.0.1:5000/maquina/webhookweb";
 $(document).ready(function() {
@@ -8,8 +8,8 @@ $(document).ready(function() {
 
         }
     };
-    axios.post(URL1 + id, config)
-    console.log(id)
+    axios.post(URL1, { "username": nombre }, config)
+    console.log(nombre)
 
     .then(function(response) {
             console.log(response);

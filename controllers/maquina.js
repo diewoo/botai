@@ -161,11 +161,11 @@ exports.registrarUsuario = function(req, res) {
 
 }
 exports.procesarMensaje = function(req, res) {
-        Maquina.findOne({ "username": req.params.username }, function(err, maquina) {
+        Maquina.findOne({ "username": req.body.username }, function(err, maquina) {
 
             console.log(maquina);
             console.log('GET/usuarios')
-            var nombre = "Bienvenido" + " " + maquina.empresa + " " + "me da gusto volver a verte!, soy el packbot en que te puedo ayudar?";
+            var nombre = "Bienvenido" + " " + maquina.empresa + " " + "me da gusto verte!, soy el packbot en que te puedo ayudar?";
 
 
 
