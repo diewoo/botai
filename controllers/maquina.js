@@ -162,13 +162,6 @@ exports.registrarUsuario = function(req, res) {
 }
 exports.procesarMensaje = function(req, res) {
 
-    clienteMaquina.findOne({ modelo: 'CRP-30' }, function(err, usuario) {
-        if (err) res.send(500, err.message);
-        console.log(usuario);
-        console.log('GET/usuarios')
-
-
-    });
 
     var nombre = "Hola" + " " + "me da gusto verte!, soy el packbot en que te puedo ayudar?";
     // console.log(nombre)
