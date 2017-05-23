@@ -201,10 +201,10 @@ exports.procesarMensaje = function(req, res) {
             ]
         }
         return res.json({
-            speech: speech,
+            speech: data,
             displayText: speech,
             source: 'apiai-webhook-sample',
-            data: data
+            data: {}
         });
 
 
