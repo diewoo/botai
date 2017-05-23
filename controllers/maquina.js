@@ -7,6 +7,9 @@ var nodemailer = require("nodemailer");
 const storage = require("../storage/maquina");
 require('mongoose').Promise = global.Promise
 
+
+
+
 var rptalogin = function(user, mensaje, codigo, password) {
         return {
             status: {
@@ -185,11 +188,23 @@ exports.procesarMensaje = function(req, res) {
                     speech += nombre;
                 }
             }
+            var data = [{ "Model": "Volumen de tolva ", "CRLW-2A": "2.0 L", "CRLW-4A": "2.0 L", "CRLW-6A": "2.0 L" },
+                { "Model": "Módulos de pesaje", "CRLW-2A": "6", "CRLW-4A": "6", "CRLW-6A": "6" },
+                { "Model": "Peso máx descarga por tolva", "CRLW-2A": "5.0 kg", "CRLW-4A": "5.0 kg", "CRLW-6A": "5.0 kg" },
+                { "Model": "Peso máx descarga en combinación", "CRLW-2A": "10.0 kg", "CRLW-4A": "20.0 kg", "CRLW-6A": "30.0 kg" },
+                { "Model": "Velocidad max", "CRLW-2A": "30 ppm", "CRLW-4A": "50 ppm", "CRLW-6A": "70 ppm" },
+                { "Model": "Exactitud", "CRLW-2A": "+/- 0.2 %", "CRLW-4A": "+/- 0.2 %", "CRLW-6A": "+/- 0.2 %" },
+                { "Model": "Alimentación", "CRLW-2A": "220VAC/50Hz", "CRLW-4A": "220VAC/50Hz", "CRLW-6A": "220VAC/50Hz" },
+                { "Model": "Potencia", "CRLW-2A": "0.5 kW", "CRLW-4A": "0.8 kW", "CRLW-6A": "1.0 kW" },
+                { "Model": "Dimensiones", "CRLW-2A": "940 x 700 x 1580 mm", "CRLW-4A": "1100 x 1000 x 1820 mm", "CRLW-6A": "1300 x 1300 x 1500 mm" },
+                { "Model": "Peso", "CRLW-2A": "300 kg", "CRLW-4A": "400 kg", "CRLW-6A": "450 kg" }
+            ]
         }
         return res.json({
             speech: speech,
             displayText: speech,
-            source: 'apiai-webhook-sample'
+            source: 'apiai-webhook-sample',
+            data: data
         });
 
 

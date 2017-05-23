@@ -33,7 +33,7 @@ $(document).ready(function() {
 
 
 
-/*document.getElementById('todoInputForm').addEventListener('submit', performPostRequest);
+document.getElementById('todoInputForm').addEventListener('submit', performPostRequest);
 
 function performPostRequest(e) {
     //var respuesta=" ";
@@ -71,4 +71,4 @@ function generateErrorHTMLOutput(error) {
 function clearOutput() {
     var resultElement = document.getElementById('postResult');
     resultElement.innerHTML = '';
-}*/
+}
