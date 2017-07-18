@@ -194,7 +194,7 @@ exports.procesarMensaje = function(req, res) {
                 if (requestBody.result.action === 'greetings') {
                     speech = nombre;
                 } else if (requestBody.result.action === 'rpta-info-maquina') {
-                    speech = rptaenvertical;
+                    speech = '';
                 }
             }
 
