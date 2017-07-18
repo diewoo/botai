@@ -207,8 +207,8 @@ exports.procesarMensaje = function(req, res) {
                 } else if (requestBody.result.action === 'rpta-info-maquina') {
                     speech = '';
                 } else if (requestBody.result.action === 'precio') {
-                    zone = requestBody.parameters.get("precio")
-                        //speech = 'El precio de la máquina es ' + cost[zone] + 'doláres'
+                    zone = requestBody.result.parameters['precio']
+                    speech = 'El precio de la máquina es ' + cost[zone] + 'doláres'
                 }
             }
 
