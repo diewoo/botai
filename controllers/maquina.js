@@ -192,7 +192,7 @@ exports.procesarMensaje = function(req, res) {
     ]*/
     // var rptaenvertical = JSON.stringify(dataenvVertical);
     // console.log(nombre)
-    var cost = {
+    var costo = {
         "envasadoras verticales": 15600,
         "envasadoras horizontales": 16000,
         "envasadoras rotativas doypack": 12000,
