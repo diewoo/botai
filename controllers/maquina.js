@@ -230,7 +230,7 @@ exports.procesarMensaje = function(req, res) {
                     speech = '';
                 } else if (requestBody.result.action === 'precio') {
                     zone = requestBody.result.parameters['tipo_maquina']
-                        // console.log(cost[1])
+                    console.log(zone)
                     speech = 'El precio de la máquina es ' + costo[zone] + " " + 'doláres'
                 }
             }
