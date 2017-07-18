@@ -175,15 +175,17 @@ exports.procesarMensaje = function(req, res) {
     // var rptaenvertical = JSON.stringify(dataenvVertical);
     // console.log(nombre)
     var cost = {
-        'envasadoras verticales': 15600,
-        'envasadoras horizontales': 16000,
-        'envasadoras rotativas doypack': 12000,
-        'envasadora vertical para sachets': 4000,
-        'balanzas lineales': 9500,
-        'balanzas multicabezales': 12000,
-        'etiquetadoras de botella': 2400,
-        'llenadores de liquido': 1850
+        "envasadoras verticales": "15600",
+        "envasadoras horizontales": "16000",
+        "envasadoras rotativas doypack": "12000",
+        "envasadora vertical para sachets": "4000",
+        "balanzas lineales": "9500",
+        "balanzas multicabezales": "12000",
+        "etiquetadoras de botella": "2400",
+        "llenadores de liquido": "1850"
     }
+    var costo = JSON.stringify(costo);
+
     try {
         var speech = 'empty speech';
         var zone = '';
@@ -210,7 +212,8 @@ exports.procesarMensaje = function(req, res) {
                     speech = '';
                 } else if (requestBody.result.action === 'precio') {
                     zone = requestBody.result.parameters['precio']
-                    speech = 'El precio de la máquina es ' + cost[zone] + 'doláres'
+                        // console.log(cost[1])
+                    speech = 'El precio de la máquina es ' + costo + " " + 'doláres'
                 }
             }
 
