@@ -1,6 +1,6 @@
-/*var nombre = localStorage.getItem("nombre");
+var nombre = localStorage.getItem("nombre");
 var URL1 = "https://packbot.herokuapp.com/maquina/webhookweb"
-var URL2 = "https://32e7c58f.ngrok.io/maquina/webhookweb";
+    //var URL2 = "https://32e7c58f.ngrok.io/maquina/webhookweb";
 $(document).ready(function() {
 
     var config = {
@@ -13,7 +13,7 @@ $(document).ready(function() {
         username: nombre
     }
 
-    axios.post(URL2, user, config)
+    axios.post(URL1, user, config)
         .then(function(response) {
             console.log(response);
 
@@ -26,9 +26,9 @@ $(document).ready(function() {
 });
 
 
-*/
 
 
+/*
 
 
 
@@ -71,4 +71,4 @@ function generateErrorHTMLOutput(error) {
 function clearOutput() {
     var resultElement = document.getElementById('postResult');
     resultElement.innerHTML = '';
-}
+}*/

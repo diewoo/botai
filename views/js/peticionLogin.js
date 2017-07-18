@@ -1,5 +1,5 @@
-var URL = "https://packbot.herokuapp.com/maquina/";
-//var URL = "http://127.0.0.1:5000/maquina/";
+//var URL = "https://packbot.herokuapp.com/maquina/";
+var URL = "https://14e4c186.ngrok.io/maquina/";
 
 $(document).ready(function() {
 
@@ -20,7 +20,7 @@ $(document).ready(function() {
         }
 
 
-        var login = $.post("https://packbot.herokuapp.com/maquina/" + "login", user)
+        var login = $.post(URL + "login", user)
             .done(function(data) {
                 if (data.status.cod === 1) {
                     console.log(data.user.username);
