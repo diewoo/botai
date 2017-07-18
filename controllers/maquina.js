@@ -183,6 +183,7 @@ exports.registrarUsuario = function(req, res) {
 }
 exports.procesarMensaje = function(req, res) {
     var username = req.body.username;
+    console.log(username);
     Maquina.findOne({ username: username }, (err, user) => {
 
 
