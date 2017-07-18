@@ -174,6 +174,16 @@ exports.procesarMensaje = function(req, res) {
     ]*/
     // var rptaenvertical = JSON.stringify(dataenvVertical);
     // console.log(nombre)
+    var cost = {
+        'envasadoras verticales': 15600,
+        'envasadoras horizontales': 16000,
+        'envasadoras rotativas doypack': 12000,
+        'envasadora vertical para sachets': 4000,
+        'balanzas lineales': 9500,
+        'balanzas multicabezales': 12000,
+        'etiquetadoras de botella': 2400,
+        'llenadores de liquido': 1850
+    }
     try {
         var speech = 'empty speech';
         var displayText = 'nada';
@@ -192,16 +202,7 @@ exports.procesarMensaje = function(req, res) {
 
                     speech += '';
                 }
-                cost = {
-                    'envasadoras verticales': 15600,
-                    'envasadoras horizontales': 16000,
-                    'envasadoras rotativas doypack': 12000,
-                    'envasadora vertical para sachets': 4000,
-                    'balanzas lineales': 9500,
-                    'balanzas multicabezales': 12000,
-                    'etiquetadoras de botella': 2400,
-                    'llenadores de liquido': 1850
-                }
+
                 if (requestBody.result.action === 'greetings') {
                     speech = nombre;
                 } else if (requestBody.result.action === 'rpta-info-maquina') {
