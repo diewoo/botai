@@ -185,7 +185,7 @@ exports.procesarMensaje = function(req, res) {
         "llenadores de liquido": "1850"
     }]
 
-    console.log(cost);
+    console.log(cost["envasadorasverticales"]);
 
     try {
         var speech = 'empty speech';
@@ -214,7 +214,7 @@ exports.procesarMensaje = function(req, res) {
                 } else if (requestBody.result.action === 'precio') {
                     zone = requestBody.result.parameters['precio']
                         // console.log(cost[1])
-                    speech = 'El precio de la máquina es ' + costo + " " + 'doláres'
+                    speech = 'El precio de la máquina es ' + costo[zone] + " " + 'doláres'
                 }
             }
 
