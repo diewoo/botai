@@ -174,7 +174,7 @@ exports.procesarMensaje = function(req, res) {
     ]*/
     // var rptaenvertical = JSON.stringify(dataenvVertical);
     // console.log(nombre)
-    var cost = {
+    var cost = [{
         "envasadoras verticales": "15600",
         "envasadoras horizontales": "16000",
         "envasadoras rotativas doypack": "12000",
@@ -183,8 +183,9 @@ exports.procesarMensaje = function(req, res) {
         "balanzas multicabezales": "12000",
         "etiquetadoras de botella": "2400",
         "llenadores de liquido": "1850"
-    }
-    var costo = JSON.stringify(costo);
+    }]
+    var costo = JSON.parse(costo);
+    console.log(costo);
 
     try {
         var speech = 'empty speech';
