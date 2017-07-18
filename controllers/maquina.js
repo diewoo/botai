@@ -184,8 +184,8 @@ exports.procesarMensaje = function(req, res) {
         "etiquetadoras de botella": "2400",
         "llenadores de liquido": "1850"
     }]
-    var costo = JSON.parse(costo);
-    console.log(costo);
+    var costo = JSON.parse(cost);
+    //console.log(costo);
 
     try {
         var speech = 'empty speech';
