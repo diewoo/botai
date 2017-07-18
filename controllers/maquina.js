@@ -172,7 +172,7 @@ exports.procesarMensaje = function(req, res) {
         { "modelo": "720i", "Ancho bobina": "máx. 730 mm", "Largo de bolsa": "200-500 mm", "Ancho de bolsa": "180-350 mm", "Velocidad": "10-60 bpm", "Alimentación": "220VAC/60Hz", "Volumen de llenado": "máx. 8000 ml", "Peso": "1000 kg", "Consumo de aire": "0.6 m3/min", "Presión de aire": "0.65 MPa", "Potencia kW": "6.0 kW", "Dimensiones LxWxH": "1150 x 1995 x 1950 mm" },
         { "modelo": "420c", "Ancho bobina": "máx. 420 mm", "Largo de bolsa": "50-300 mm", "Ancho de bolsa": "50-200 mm", "Velocidad": "10-120 bpm", "Alimentación": "220VAC/60Hz", "Volumen de llenado": "máx. 1200 ml", "Peso": "600 kg", "Consumo de aire": "0.3 m3/min", "Presión de aire": "0.65 MPa", "Potencia kW": "3.0 kW", "Dimensiones LxWxH": "1545 x 945 x 1500 mm" }
     ]*/
-    var rptaenvertical = JSON.stringify(dataenvVertical);
+    // var rptaenvertical = JSON.stringify(dataenvVertical);
     // console.log(nombre)
     try {
         var speech = 'empty speech';
