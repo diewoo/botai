@@ -208,7 +208,7 @@ exports.procesarMensaje = function(req, res) {
                     speech = '';
                 } else if (requestBody.result.action === 'precio') {
                     zone = requestBody.parameters.get("precio")
-                    speech = 'El precio de la máquina es ' + cost[zone] + 'doláres'
+                        //speech = 'El precio de la máquina es ' + cost[zone] + 'doláres'
                 }
             }
 
