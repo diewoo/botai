@@ -179,13 +179,13 @@ exports.procesarMensaje = function(req, res) {
         "envasadoras horizontales": "16000",
         "envasadoras rotativas doypack": "12000",
         "envasadora vertical para sachets": "4000",
-        "balanzas lineales": "9500",
+        "balanzaslineales": "9500",
         "balanzas multicabezales": "12000",
         "etiquetadoras de botella": "2400",
         "llenadores de liquido": "1850"
     }]
 
-    console.log(cost["envasadorasverticales"]);
+    console.log(cost.balanzaslineales);
 
     try {
         var speech = 'empty speech';
