@@ -73,10 +73,28 @@ exports.obtenerUsuarios = function(req, res) {
 exports.validLogin = function(req, res) {
         var username = req.body.username;
         var password = req.body.password;
-        console.log(req.body.username);
+        // console.log(req.body.username);
+
+
+        //console.log(cost.balanzaslineales);
+
+        //res.status(200).jsonp(cost);
         Maquina.findOne({ username: username }, (err, user) => {
             var rpta = {};
+            var cost = {
+                "envasadorasverticales": 15600,
+                "envasadoras horizontales": 16000,
+                "envasadorasrotativasdoypack": 12000,
+                "envasadoraverticalparasachets": 4000,
+                "balanzaslineales": 9500,
+                "balanzasmulticabezales": 12000,
+                "etiquetadorasdebotella": 2400,
+                "llenadoresdeliquido": 1850
+            }
+
+
             console.log("usuario " + user);
+            console.log(cost["envasadoras horizontales"]);
             if (user) {
                 if (user.password = password) {
                     if (err) return res.status(500).send(err.message);
@@ -174,18 +192,17 @@ exports.procesarMensaje = function(req, res) {
     ]*/
     // var rptaenvertical = JSON.stringify(dataenvVertical);
     // console.log(nombre)
-    var cost = [{
-        "envasadoras verticales": "15600",
-        "envasadoras horizontales": "16000",
-        "envasadoras rotativas doypack": "12000",
-        "envasadora vertical para sachets": "4000",
-        "balanzaslineales": "9500",
-        "balanzas multicabezales": "12000",
-        "etiquetadoras de botella": "2400",
-        "llenadores de liquido": "1850"
-    }]
+    var cost = {
+        "envasadoras verticales": 15600,
+        "envasadoras horizontales": 16000,
+        "envasadoras rotativas doypack": 12000,
+        "envasadora vertical parasachets": 4000,
+        "balanzas lineales": 9500,
+        "balanzas multicabezales": 12000,
+        "etiquetadoras de botella": 2400,
+        "llenadores de liquido": 1850
+    }
 
-    console.log(cost.balanzaslineales);
 
     try {
         var speech = 'empty speech';
@@ -212,7 +229,7 @@ exports.procesarMensaje = function(req, res) {
                 } else if (requestBody.result.action === 'rpta-info-maquina') {
                     speech = '';
                 } else if (requestBody.result.action === 'precio') {
-                    zone = requestBody.result.parameters['precio']
+                    zone = requestBody.result.parameters['tipo_maquina']
                         // console.log(cost[1])
                     speech = 'El precio de la máquina es ' + costo[zone] + " " + 'doláres'
                 }
