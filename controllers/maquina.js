@@ -184,17 +184,30 @@ exports.procesarMensaje = function(req, res) {
 
             if (requestBody.result) {
                 speech = '';
+                parameters = result.get("parameters")
+                zone = parameters.get("precio")
 
                 if (requestBody.result.fulfillment) {
                     speech += requestBody.result.fulfillment.speech;
 
                     speech += '';
                 }
-
+                cost = {
+                    'envasadoras verticales': 15600,
+                    'envasadoras horizontales': 16000,
+                    'envasadoras rotativas doypack': 12000,
+                    'envasadora vertical para sachets': 4000,
+                    'balanzas lineales': 9500,
+                    'balanzas multicabezales': 12000,
+                    'etiquetadoras de botella': 2400,
+                    'llenadores de liquido': 1850
+                }
                 if (requestBody.result.action === 'greetings') {
                     speech = nombre;
                 } else if (requestBody.result.action === 'rpta-info-maquina') {
                     speech = '';
+                } else if (requestBody.result.action === 'precio') {
+                    speech = 'El precio de la máquina es ' + cost[zone] + 'doláres'
                 }
             }
 
